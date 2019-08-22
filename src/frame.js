@@ -1,5 +1,8 @@
+'use strict'
+
 class Frame {
   constructor (brand) {
+    this._MAXPINS = 10
     this._rollOne = null
     this._rollTwo = null
     this._isStrike = false
@@ -35,7 +38,7 @@ class Frame {
 
   // Private Methods
   _checkIfStrike () {
-    if (this._rollOne === 10) { this._updateIsStrike() }
+    if (this._rollOne === this._MAXPINS) { this._updateIsStrike() }
   }
 
   _updateIsStrike () {
@@ -43,7 +46,7 @@ class Frame {
   }
 
   _checkIfSpare () {
-    if (this._rollOne + this._rollTwo === 10) { this._updateIsSpare() }
+    if (this._rollOne + this._rollTwo === this._MAXPINS) { this._updateIsSpare() }
   }
 
   _updateIsSpare () {
